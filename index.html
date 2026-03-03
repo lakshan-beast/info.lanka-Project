@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Info.Lanka</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="system-container">
+      <header id="header">
+        <div class="header-section">
+          <div class="header-logo">
+            <h1>info<span>.</span><small>lanka</small></h1>
+          </div>
+
+          <div class="navbar-links" id="navbar-links">
+              <a href="#home">Home</a>
+              <a href="#categories">Categories</a>
+              <a href="#how">How to works</a></li>
+              <a href="#about">About us</a>
+              <a href="#contact">Contact us</a>
+          </div>
+
+          <div class="menu-btns" id="menu-btns">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="home-section" id="home">
+          <h1>Find Sri Lanka Goverment & Essentail Services in One Place</h1>
+          <p>Official service links, simple explanations and quick access.</p>
+
+          <div class="search-section">
+            <input
+              type="search"
+              name="search-field"
+              id="search-field"
+              placeholder="Search for services, e.g. water, driving license…" />
+            <button onclick="searchLink()" type="button">
+              <i class="fa-solid fa-search"></i>Search
+            </button>
+          </div>
+          <!-- <div class="keyup" id="keyup"></div> -->
+
+          <div class="result-container">
+            <div class="result-card" id="result-card"></div>
+          </div>
+
+          <div class="popup-box">
+            <h2>Hey, Welcome. <i class="fa-solid fa-hand fa-shake"></i></h2>
+            <p>
+              new here? try this demo search:
+              <a href="#" onclick="searchLink('water')">Water</a>
+            </p>
+          </div>
+        </section>
+
+        <section class="categories-section" id="categories">
+          <div class="categories-container">
+            <h1>All Categories</h1>
+            <div class="categories-cards">
+              <div class="categories-card" id="ministries">
+                <h2>
+                  <i class="fa-solid fa-landmark"></i> Ministries & Departments
+                </h2>
+                <p>
+                  All central goverment ministries and their key departments
+                </p>
+                <button type="button">Explore Services</button>
+              </div>
+
+              <div class="categories-card" id="regional">
+                <h2>
+                  <i class="fa-solid fa-building"></i>
+                  Regional & Provincal Offices
+                </h2>
+
+                <p>District and provincial offices across the country.</p>
+                <button type="button">Explore Services</button>
+              </div>
+
+              <div class="categories-card" id="public">
+                <h2>
+                  <i class="fa-solid fa-lightbulb"></i>
+                  public Services & Utilities
+                </h2>
+                <p>Electricity, water, postal, and other essential services.</p>
+                <button type="button">Explore Services</button>
+              </div>
+
+              <div class="categories-card" id="law">
+                <h2><i class="fa-solid fa-gavel"></i> Law & Justice</h2>
+                <p>Courts, police stations, and legal aid offices.</p>
+                <button type="button">Explore Services</button>
+              </div>
+
+              <div class="categories-card" id="health">
+                <h2>
+                  <i class="fa-solid fa-hospital"></i>
+                  Health & Socail Services
+                </h2>
+                <p>
+                  Hospitals, clinics, vaccination centers, and welfare programs.
+                </p>
+                <button type="button">Explore Services</button>
+              </div>
+              <div class="categories-card" id="education">
+                <h2>
+                  <i class="fa-solid fa-graduation-cap"></i> Education &
+                  research
+                </h2>
+                <p>
+                  Schools, universities, scholarships, and research institutes.
+                </p>
+                <button type="button">Explore Services</button>
+              </div>
+              <div class="categories-card" id="vehicals">
+                <h2>
+                  <i class="fa-solid fa-car"></i>
+                  Vehicals & Transport Management
+                </h2>
+                <p>
+                  Driving licenses, traffic fines, and public transport info.
+                </p>
+                <button type="button">Explore Services</button>
+              </div>
+              <div class="categories-card" id="finance">
+                <h2>
+                  <i class="fa-solid fa-piggy-bank"></i> Finance & economy
+                </h2>
+                <p>
+                  Banks, tax offices, and business registration authorities.
+                </p>
+                <button type="button">Explore Services</button>
+              </div>
+              <div class="categories-card" id="tourism">
+                <h2>
+                  <i class="fa-solid fa-landmark-flag"></i> Tourism, Culture &
+                  Enviroment
+                </h2>
+                <p>National parks, heritage sites, and cultural centers.</p>
+                <button type="button">Explore Services</button>
+              </div>
+              <div class="categories-card" id="option">
+                <h2>
+                  <i class="fa-solid fa-flask"></i>
+                  Optional Specailized Divisions
+                </h2>
+                <p>
+                  Meteorology, agriculture extensions, and other regulatory
+                  boards.
+                </p>
+                <button type="button">Explore Services</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="how-it-works" id="how">
+          <h1>How It Works</h1>
+
+          <div class="how-it-cards">
+            <div class="how-it-card">
+              <h3>Step 01 - <span>Find the service you need</span></h3>
+              <p>
+                browse through organized categories or use the search bar to
+                quickly llocate the service you are looking for. Whether it's a
+                passport renewal, driving license, or utility payment,
+                everything is structures to help you find it without confusion.
+              </p>
+            </div>
+            <div class="how-it-card">
+              <h3>
+                Step 02 - <span>review clear & organied information</span>
+              </h3>
+              <p>
+                eachservice page provides simplified, easy-to-understand
+                information aloing with relevant details and uidence, instead of
+                navigating mlutiple websites, yoou can view everything in one
+                organized place.
+              </p>
+            </div>
+            <div class="how-it-card">
+              <h3>step 03 - <span>Access the official Sources</span></h3>
+              <p>
+                Once you are ready, simply follow the verified link to the
+                official service provider. <span>info.lanka</span> connects you
+                directly to the correct source, helping you save time and avoid
+                unreliable information.
+              </p>
+            </div>
+
+            <div class="how-it-card">
+              <h3>Some Suggested tags</h3>
+
+              <div class="suggested-words">
+                <h4>Goverment Services</h4>
+                <p>
+                  ministries/ departments/ public services/ immigration/ RGD/
+                  passports/ birth certificates/ marriage certificates/ driving
+                  licenses/ traffic fines
+                </p>
+                <h4>Utilities & Bills</h4>
+                <p>
+                  electricity bill/ water bill/ gas bill/ postal services/ CEB/
+                  water/ board/ SL Post
+                </p>
+
+                <h4>Health & Social Services</h4>
+                <p>hospitals/ clinics/ vaccinations/ welfare services</p>
+
+                <h4>Education & Research</h4>
+
+                <p>
+                  schools/ universities/ scholarships/ research institutes/
+                  vocational training
+                </p>
+
+                <h4>Finance & Economy:</h4>
+
+                <p>registration/ BOI/ treasury/ banks/ tax office/ company</p>
+
+                <h4>Transport & Travel</h4>
+
+                <p>
+                  train info/ airports/ SLTB/ vehicle registration/ bus
+                  schedules
+                </p>
+
+                <h4>Agriculture & Environment</h4>
+                <p>
+                  crops/ herbs/ farm guidance/ meteorology/weather forecast/
+                  national parks
+                </p>
+
+                <h4>Tourism & Culture</h4>
+                <p>
+                  heritage sites/ museums/ cultural centers/ sightseeing/ eco
+                  tourism
+                </p>
+
+                <h4>Services</h4>
+                <p>
+                  courier services/ online applications/ official portal links/
+                  notifications/ alerts
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="why-this" id="why">
+          <h1>Why Choose <span>info.lanka</span>?</h1>
+
+          <div class="why-this-cards">
+            <div class="why-this-card">
+              <h3>Everything in One Place</h3>
+
+              <p>
+                No more jumping between multiple websites or struggling to find
+                what you need.
+              </p>
+              <p>
+                Info.Lanka brings all public service information together in one
+                organized spot — simple, fast, and reliable.
+              </p>
+
+              <span
+                ><q
+                  >Finally, a place where I can find everything without
+                  confusion.</q
+                ></span
+              >
+            </div>
+
+            <div class="why-this-card">
+              <h3>Verified & Trusted Links</h3>
+
+              <p>We only connect you to official sources.</p>
+              <p>
+                Every link is checked so you can be confident you’re reaching
+                the right place — no fake pages, no misinformation.
+              </p>
+
+              <span
+                ><q
+                  >I don’t have to second-guess anything — it’s all verified.</q
+                ></span
+              >
+            </div>
+
+            <div class="why-this-card">
+              <h3>Clear & Easy to Use</h3>
+
+              <p>Our platform is designed for real people, not tech experts.</p>
+              <p>
+                Whether you’re on your phone or desktop, finding the information
+                you need is smooth and straightforward.
+              </p>
+
+              <span
+                ><q
+                  >I can just click and get what I need — no frustration.</q
+                ></span
+              >
+            </div>
+
+            <div class="why-this-card">
+              <h3>Saves Your Time & Effort</h3>
+
+              <p>Everything is structured to help you finish tasks quickly.</p>
+              <p>
+                No endless searching, no unnecessary steps — Info.Lanka gets you
+                there efficiently.
+              </p>
+
+              <span><q>I spend less time looking, more time doing.</q></span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-container">
+          <div class="footer-top">
+            <h1>info<span>.</span><small>lanka</small></h1>
+            <p>Sri Lanka's centralaixed public sercive information platform.</p>
+            <div class="badge-levelup">
+              <p><i class="fa-solid fa-rocket"></i> Version 1.0</p>
+              <p><i class="fa-solid fa-circle-check"></i> Verified Links</p>
+              <p>
+                <i class="fa-solid fa-laptop-code"></i> last updated
+                <span>2026 feb</span>
+              </p>
+              <p><i class="fa-solid fa-users"></i> Comminuty reviewed</p>
+            </div>
+          </div>
+          <div class="quick-links footer-card">
+            <h3>quick links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#categories">Categories</a></li>
+              <li><a href="#how">How to works</a></li>
+              <li><a href="#why">Why choose</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contacts">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="categorues-links footer-card">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#ministries">Ministries & Departments</a></li>
+              <li><a href="#regional">Regional & Provi ncial Offices</a></li>
+              <li><a href="#public">Public Services & Utilities</a></li>
+              <li><a href="#law">Law & Justice</a></li>
+              <li><a href="#health">Health & Social Services</a></li>
+              <li><a href="#education">Education & Research</a></li>
+              <li><a href="#vehicles">Transport & Vehicle Management</a></li>
+              <li><a href="#finance">Finance & Economy</a></li>
+              <li><a href="#tourism">Tourism, Culture & Environment</a></li>
+              <li><a href="#option">Specialized Divisions</a></li>
+            </ul>
+          </div>
+          <div class="top-services footer-card">
+            <h3>top services</h3>
+            <ul>
+              <li><a href="#https://www.immigration.gov.lk">Passport</a></li>
+              <li>
+                <a href="#gov.lk/webdirectory/ministry">Driving License</a>
+              </li>
+              <li>
+                <a href="#gov.lk/webdirectory/ministry"
+                  >Vehicle reveneu License</a
+                >
+              </li>
+              <li><a href="#https://www.police.lk/">Police Clearance</a></li>
+              <li><a href="#https://www.rgd.gov.lk">Birth Cetificates</a></li>
+              <li><a href="#http://www.ird.gov.lk/">tax Services</a></li>
+              <li><a href="#https://www.ceb.lk/">Electicity Bill</a></li>
+              <li><a href="#https://www.waterboard.lk/">water bill</a></li>
+            </ul>
+          </div>
+
+          <div class="resources-links footer-card">
+            <h3>Resources & Help</h3>
+            <ul>
+              <!-- <li><a href="#how">how to works</a></li> -->
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">terms of services</a></li>
+              <li><a href="#">report incorerct info</a></li>
+              <li><a href="#">Suggest a services</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copy-right">
+          <p>
+            <i class="fa-regular fa-copyright"></i>
+            <span id="year">2026</span>
+            info.lanka. All Rights Resevered.
+            <span>
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms</a>
+              <a href="#diclaimer">Disclaimer</a>
+            </span>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
