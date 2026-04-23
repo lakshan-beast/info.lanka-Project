@@ -1,0 +1,115 @@
+// const header = document.getElementById("header");
+// const navbar = document.getElementById("navbar-links");
+
+// window.addEventListener("scroll", function () {
+//   if (this.window.scrollY > 50) {
+//     // up to 50px after change style
+//     header.classList.add("scrolled");
+//     navbar.classList.add("scrolled");
+//     header.classList.remove("transparent");
+//     navbar.classList.remove("transparent");
+//   } else {
+//     header.classList.add("transparent");
+//     navbar.classList.add("transparent");
+//     header.classList.remove("scrolled");
+//     navbar.classList.remove("scrolled");
+//   }
+// });
+
+// header.classList.add("transparent");
+// navbar.classList.add("transparent");
+// // heading style
+
+// // menu toggle script
+// function headers() {
+//   const navbar = document.getElementById("navbar-links");
+//   const more_btns = document.getElementById("menu-btns");
+//   const icon = more_btns.querySelector("i");
+
+//   // Toggle menu & icon
+//   more_btns.addEventListener("click", (e) => {
+//     e.stopPropagation(); // prevent immediate close
+//     navbar.classList.toggle("active");
+
+//     // icon toggle
+//     if (navbar.classList.contains("active")) {
+//       icon.classList.add("fa-xmark");
+//       icon.classList.remove("fa-bars-staggered");
+//     } else {
+//       icon.classList.add("fa-bars-staggered");
+//       icon.classList.remove("fa-xmark");
+//     }
+//   });
+// }
+// headers();
+
+
+// // Search Link
+// function searchLink() {
+//   const inputValue = document
+//     .getElementById("search-field")
+//     .value.toLowerCase();
+
+//   if (!inputValue) {
+//     document.getElementById("result-card").innerHTML =
+//       "Please enter a service your want.";
+//     return;
+//   }
+
+//   const results = searchCategories(inputValue);
+//   displayResults(results);
+
+//   // document.getElementById("result-card").value = "";
+
+//   // category search function
+//   function searchCategories(searchText) {
+//     return services.filter(
+//       (service) =>
+//         service.title.includes(searchText) ||
+//         service.keywords.some((keyword) =>
+//           keyword.toLowerCase().includes(searchText),
+//         ),
+//     );
+//   }
+
+//   // display result function
+//   function displayResults(results) {
+//     const resultDiv = document.getElementById("result-card");
+//     resultDiv.innerHTML = "";
+//     resultDiv.style.display = "block";
+
+//     if (results.length === 0) {
+//       resultDiv.innerHTML = `
+//         <p>
+//         <i class='fa-solid fa-circle-exclamation fa-fade'></i>
+//         "No results found. Please check your spelling or try different keywords.
+//         </p>
+//       `;
+//       return;
+//     }
+
+//     results.forEach((service) => {
+//       resultDiv.innerHTML = `
+//       <div class='disCard'>
+//         <h2>${service.title}</h2>
+//         <a href="${service.url}" target="_blank">
+//         <span> Go to ${service.title}<i class="fa-solid fa-chevron-right"></i></span>
+//         </a>
+//       </div>
+//       `;
+//     });
+//   }
+// }
+
+// // 2. Data Store
+// const services = [
+//   // ඔබ එවපු Array එකේ සියලුම කොටස් (ප්‍රසිඩන්ට් ඔෆිස් එකේ සිට අවසන් එක දක්වා) මෙතන තිබිය යුතුයි.
+//   // මම උදාහරණයකට එකක් පෙන්වන්නම්:
+//   {
+//     main: "Public Services & Utilities ⚡️🚰📮",
+//     title: "National Water Supply & Drainage Board (NWSDB)",
+//     url: "https://waterboard.lk",
+//     keywords: ["water bill", "water board", "nwsdb", "water supply"]
+//   },
+//   // ... ඔබේ ඉතිරි දත්ත 100ම මෙතනට ඇතුළත් කරන්න ...
+// ];
