@@ -131,11 +131,25 @@ const searchInput = document.getElementById("search-field");
 const searchBtn = document.querySelector(".search-section button");
 
 // 3. Scroll Effect Logic
-window.addEventListener("scroll", () => {
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 50) {
+//     header.classList.add("scrolled");
+//     navbar.classList.add("scrolled");
+//   } else {
+//     header.classList.remove("scrolled");
+//     navbar.classList.remove("scrolled");
+//   }
+
+window.addEventListener("scroll", function () {
   if (window.scrollY > 50) {
+    // up to 50px after change style
     header.classList.add("scrolled");
     navbar.classList.add("scrolled");
+    header.classList.remove("transparent");
+    navbar.classList.remove("transparent");
   } else {
+    header.classList.add("transparent");
+    navbar.classList.add("transparent");
     header.classList.remove("scrolled");
     navbar.classList.remove("scrolled");
   }
@@ -186,14 +200,14 @@ function displayResults(results) {
   resultCard.innerHTML = "";
   resultCard.style.display = "block";
 
-  // if (results.length > 0) {
-  //   countDiv.innerHTML = `Showing ${results.length} result(s) found for you.`;
-  //   countDiv.style.display = "block";
-  // } else {
-  //   // countDiv.style.display = "none";
-  //   // countDiv.innerHTML = `<p>No Result Found. Try anoher word.</p>`;
-  //   return;
-  // }
+  if (results.length > 0) {
+    countDiv.innerHTML = `Showing ${results.length} result(s) found for you.`;
+    countDiv.style.display = "block";
+  } else {
+    countDiv.style.display = "none";
+    countDiv.innerHTML = `<p>No Result Found. Try anoher word.</p>`;
+    return;
+  }
 
   if (results.length === 0) {
     resultCard.innerHTML = `
