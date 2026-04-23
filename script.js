@@ -1,8 +1,9 @@
+// 1. Header & Navigation Logic
 const header = document.getElementById("header");
 const navbar = document.getElementById("navbar-links");
 
 window.addEventListener("scroll", function () {
-  if (this.window.scrollY > 50) {
+  if (window.scrollY > 50) {
     // up to 50px after change style
     header.classList.add("scrolled");
     navbar.classList.add("scrolled");
@@ -16,21 +17,19 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// Initial state
 header.classList.add("transparent");
 navbar.classList.add("transparent");
-// heading style
 
+// Mobile Menu Toggle Function
 function headers() {
-  const navbar = document.getElementById("navbar-links");
   const more_btns = document.getElementById("menu-btns");
   const icon = more_btns.querySelector("i");
 
-  // Toggle menu & icon
   more_btns.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent immediate close
+    e.stopPropagation();
     navbar.classList.toggle("active");
 
-    // icon toggle
     if (navbar.classList.contains("active")) {
       icon.classList.add("fa-xmark");
       icon.classList.remove("fa-bars-staggered");
@@ -42,7 +41,12 @@ function headers() {
 }
 headers();
 
+// import servicesData file
+// import { services } from "./servicesData.js";
+
+// Serviced Date.js
 // First Version Data Store
+// export const services = [
 const services = [
   // Department Link
   {
@@ -1443,59 +1447,78 @@ const services = [
 ];
 // First Version data store end
 
-// Search Link
-function searchLink() {
-  const inputValue = document
-    .getElementById("search-field")
-    .value.toLowerCase();
+// 3. Search & Display Logic
 
-  if (!inputValue) {
-    document.getElementById("result-card").innerHTML =
-      "Please enter a service your want.";
+function searchLink(demoQuery = null) {
+  const searchInput = document.getElementById("search-field");
+  const resultCard = document.getElementById("result-card");
+
+  // User ටයිප් කළ අගය හෝ Demo අගය ලබා ගැනීම
+  let query = (demoQuery || searchInput.value).toLowerCase().trim();
+
+  if (query === "") {
+    resultCard.style.display = "none";
+    resultCard.innerHTML = "";
     return;
   }
 
-  const results = searchCategories(inputValue);
+  const results = searchCategories(query);
   displayResults(results);
+}
 
-  // document.getElementById("result-card").value = "";
-
-  // category search function
-  function searchCategories(searchText) {
-    return services.filter(
-      (service) =>
-        service.title.includes(searchText) ||
-        service.keywords.some((keyword) =>
-          keyword.toLowerCase().includes(searchText),
-        ),
+// Category search function
+function searchCategories(searchText) {
+  return services.filter((service) => {
+    const titleMatch = service.title.toLowerCase().includes(searchText);
+    const categoryMatch = service.main.toLowerCase().includes(searchText);
+    const keywordMatch = service.keywords.some((keyword) =>
+      keyword.toLowerCase().includes(searchText),
     );
+    return titleMatch || categoryMatch || keywordMatch;
+  });
+}
+
+// Display result function (නිවැරදි කරන ලද)
+function displayResults(results) {
+  const resultDiv = document.getElementById("result-card");
+  resultDiv.innerHTML = ""; // පරණ results ඉවත් කිරීම
+  resultDiv.style.display = "block";
+
+  if (results.length === 0) {
+    resultDiv.innerHTML = `
+      <p style="color: #ff4d4d; padding: 15px; text-align: center; font-weight: bold;">
+        <i class="fa-solid fa-circle-exclamation fa-fade"></i>
+        No results found. Please check your spelling or try different keywords.
+      </p>
+    `;
+    return;
   }
 
-  // display result function
-  function displayResults(results) {
-    const resultDiv = document.getElementById("result-card");
-    resultDiv.innerHTML = "";
-    resultDiv.style.display = "block";
+  // සියලුම ප්‍රතිඵල loop එකක් හරහා පෙන්වීම
+  results.forEach((service) => {
+    // URL එක නිවැරදිව පරීක්ෂා කිරීම
+    const finalUrl = service.url.startsWith("http")
+      ? service.url
+      : "https://" + service.url;
 
-    if (results.length === 0) {
-      resultDiv.innerHTML = `
-        <p>
-        <i class='fa-solid fa-circle-exclamation fa-fade'></i> 
-        "No results found. Please check your spelling or try different keywords.
-        </p>
-      `;
-      return;
-    }
-
-    results.forEach((service) => {
-      resultDiv.innerHTML = `
-      <div class='disCard'>
-        <h2>${service.title}</h2>
-        <a href="${service.url}" target="_blank">              
-        <span> Go to ${service.title}<i class="fa-solid fa-chevron-right"></i></span>
+    resultDiv.innerHTML += `
+      <div
+        class="disCard"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+        <div>
+          <h2 style="font-size: 1.1rem; margin: 0;">${service.title}</h2>
+        </div>
+        <a
+          href="${finalUrl}"
+          target="_blank"
+          style="color: #14d198; text-decoration: none; font-weight: bold; font-size: 0.9rem;">
+          Visit Portal <i class="fa-solid fa-chevron-right"></i>
         </a>
       </div>
-      `;
-    });
-  }
+    `;
+  });
 }
+
+// Auto-update Copyright Year
+const yearSpan = document.getElementById("year");
+if (yearSpan) yearSpan.innerText = new Date().getFullYear();
