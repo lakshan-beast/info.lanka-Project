@@ -6,10 +6,10 @@
   scroll-behavior: smooth;
   scroll-margin-top: 5.5rem;
 
-  transition: 0.3s smooth;
+  transition: 0.3s ease;
 }
 body {
-  height: 2000px;
+  height: auto;
   font-family: "Open Sans";
   font-weight: 400;
 }
@@ -72,16 +72,16 @@ header.scrolled {
   align-items: center;
 }
 .header-logo h1 {
-  font-size: 3rem;
+  font-size: 2.1rem;
   text-transform: lowercase;
 }
 .header-logo span {
   color: #14d198;
-  font-size: 3rem;
+  font-size: 2.1rem;
 }
 .header-logo small {
   color: var(--light-grey);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   text-transform: lowercase;
 }
 .menu-btns {
@@ -91,7 +91,7 @@ header.scrolled {
   align-items: center;
 }
 .menu-btns i {
-  font-size: 2.5rem;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--green-dark);
 }
@@ -132,7 +132,7 @@ header.scrolled {
   color: inherit;
   font-weight: 500;
   transition: 0.3s;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -143,6 +143,7 @@ header.scrolled {
   color: var(--green-medium);
   border: none;
   transition: 0.3s ease;
+  text-decoration: underline;
 }
 
 /* .home-section */
@@ -158,33 +159,35 @@ header.scrolled {
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 .home-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   font-family: cursive;
+  padding: 0 3rem;
 }
 .home-section p {
   font-size: 1.1rem;
   margin-bottom: 10px;
   opacity: 0.8;
+  padding: 1.5rem 1rem;
 }
 .search-section {
   display: flex;
-  max-width: 450px;
-  width: 98%;
+  max-width: 400px;
+  width: 100%;
   margin: 0 2rem;
   position: relative;
 }
 .search-section input {
   flex: 1;
-  padding: 15px;
+  padding: 10px 15px;
   border: none;
   outline: none;
   border-radius: 5px 0 0 5px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #004077;
 }
 .search-section button {
-  padding: 15px 20px;
+  padding: 10px 15px;
   border: none;
   background-color: #1aa27a;
   color: var(--white);
@@ -216,6 +219,7 @@ header.scrolled {
   align-items: flex-start;
   animation: popup 0.6s ease-in forwards;
   animation-delay: 300s;
+  display: none;
 }
 @keyframes popup {
   from {
@@ -249,6 +253,7 @@ header.scrolled {
   overflow: auto;
   /* scrollbar-width: none; */
   --ms-overflow-style: none;
+  /* display: block; */
 }
 .result-container::-webkit-scrollbar {
   display: none;
@@ -257,7 +262,7 @@ header.scrolled {
   background-color: rgba(230, 255, 248, 0.164);
   padding: 3px 12px;
   width: 100%;
-  margin: 1px;
+  margin: 6px;
   border-radius: 6px;
   text-align: center;
   display: none;
@@ -292,7 +297,7 @@ header.scrolled {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 6px 0;
+  margin: 12px 0;
   padding: 3px 6px;
   border-radius: 4px;
 }
@@ -307,7 +312,7 @@ header.scrolled {
 .categories-container h1,
 .how-it-works h1,
 .why-this h1 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #003f5a;
   text-align: center;
@@ -389,7 +394,7 @@ header.scrolled {
 }
 .how-it-card h3,
 .why-this-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--blue-dark);
   font-weight: 700;
   border-width: 100%;
@@ -413,7 +418,7 @@ header.scrolled {
   margin: 2px 0;
 }
 .why-this-card span {
-  font-size: 1.3rem;
+  font-size: 1rem;
   background-color: rgba(219, 219, 219, 0.4);
   color: var(--blue-medium);
   padding: 6px 16px;
@@ -439,7 +444,7 @@ footer {
   margin-bottom: 50px;
 }
 .footer-top h1 {
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-transform: lowercase;
   color: var(--white);
 }
@@ -477,7 +482,7 @@ footer {
   margin: 2rem 0;
 }
 .footer-card h3 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: var(--white);
   margin-bottom: 4px;
 }
@@ -493,7 +498,7 @@ footer {
   color: var(--light-grey);
   opacity: 0.8;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 .footer-card i {
   margin-right: 8px;
