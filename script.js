@@ -121,15 +121,14 @@
 // const yearSpan = document.getElementById("year");
 // if (yearSpan) yearSpan.innerText = new Date().getFullYear();
 
-// 1. දත්ත Import කරගැනීම
+// 1. data Import
 import { services } from "./servicesData.js";
 
-// 2. DOM Elements ලබාගැනීම
+// 2. DOM Elements
 const header = document.getElementById("header");
 const navbar = document.getElementById("navbar-links");
 const searchInput = document.getElementById("search-field");
 const searchBtn = document.querySelector(".search-section button");
-const resultCard = document.getElementById("result-card");
 
 // 3. Scroll Effect Logic
 window.addEventListener("scroll", () => {
@@ -160,7 +159,7 @@ function initNavigation() {
 }
 initNavigation();
 
-// 5. Search Logic (මෙහි function එක 'window' එකට සම්බන්ධ කර ඇත)
+// 5. Search Logic
 window.searchLink = function (demoQuery = null) {
   let query = (demoQuery || searchInput.value).toLowerCase().trim();
 
@@ -181,8 +180,20 @@ window.searchLink = function (demoQuery = null) {
 
 // 6. Display Results Logic
 function displayResults(results) {
+  const resultCard = document.getElementById("result-card");
+  const countDiv = document.getElementById("search-count");
+
   resultCard.innerHTML = "";
   resultCard.style.display = "block";
+
+  // if (results.length > 0) {
+  //   countDiv.innerHTML = `Showing ${results.length} result(s) found for you.`;
+  //   countDiv.style.display = "block";
+  // } else {
+  //   // countDiv.style.display = "none";
+  //   // countDiv.innerHTML = `<p>No Result Found. Try anoher word.</p>`;
+  //   return;
+  // }
 
   if (results.length === 0) {
     resultCard.innerHTML = `
@@ -215,7 +226,7 @@ function displayResults(results) {
   });
 }
 
-// 7. Event Listeners (HTML onclick වෙනුවට)
+// 7. Event Listeners
 if (searchBtn) {
   searchBtn.addEventListener("click", () => window.searchLink());
 }
