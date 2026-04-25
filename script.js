@@ -7,6 +7,9 @@ const navbar = document.getElementById("navbar-links");
 const searchInput = document.getElementById("search-field");
 const searchBtn = document.querySelector(".search-section button");
 
+const resultCard = document.getElementById("result-card");
+const countDiv = document.getElementById("search-count");
+
 window.addEventListener("scroll", function () {
   if (window.scrollY > 50) {
     // up to 50px after change style
@@ -50,44 +53,57 @@ if (popup) {
     popup.style.opacity = "0";
 
     setTimeout(() => {
-      popup.remove;
+      popup.remove();
     }, 600);
   });
 }
 
 // 5. Search Logic
 window.searchLink = function (demoQuery = null) {
-  let query = (demoQuery || searchInput.value).toLowerCase().trim();
+  let query = (demoQuery || searchInput.value)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]/g, "");
 
   if (!query) {
     resultCard.style.display = "none";
     return;
   }
 
-  const filteredResults = services.filter(
-    (service) =>
-      service.title.toLowerCase().includes(query) ||
-      service.main.toLowerCase().includes(query) ||
-      service.keywords.some((kw) => kw.toLowerCase().includes(query)),
-  );
+  // const filteredResults = services.filter(
+  //   (service) =>
+  //     service.title.toLowerCase().includes(query) ||
+  //     service.main.toLowerCase().includes(query) ||
+  //     service.keywords.some((keyword) => keyword.toLowerCase().includes(query)),
+  // );
+  const filteredResults = services.filter((service) => {
+    const title = service.title.toLowerCase();
+    const main = service.main.toLowerCase();
+    const keywords = service.keywords.join(" ").toLowerCase();
+
+    return (
+      title.includes(query) || main.includes(query) || keywords.includes(query)
+    );
+  });
+
+  // const uniqueResults = [
+  //   ...new Map(results.map((item) => [item.title, item])).values(),
+  // ];
 
   displayResults(filteredResults);
 };
 
 // 6. Display Results Logic
 function displayResults(results) {
-  const resultCard = document.getElementById("result-card");
-  const countDiv = document.getElementById("search-count");
-
   resultCard.innerHTML = "";
   resultCard.style.display = "block";
+  countDiv.style.display = "block";
 
   if (results.length > 0) {
     countDiv.innerHTML = `Showing ${results.length} result(s) found for you.`;
-    countDiv.style.display = "block";
   } else {
     countDiv.style.display = "none";
-    countDiv.innerHTML = `<p>No Result Found. Try anoher word.</p>`;
+    countDiv.textContent = "No results found. Try another word.";
     return;
   }
 
@@ -104,20 +120,21 @@ function displayResults(results) {
     const finalUrl = service.url.startsWith("http")
       ? service.url
       : "https://" + service.url;
+
     resultCard.innerHTML += `
-      <div
-        class="disCard"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.1); border-radius: 6px;">
-        <div>
-          <h2 style="font-size: 1.1rem; margin: 0;">${service.title}</h2>
+        <div
+          class="disCard"
+          style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+          <div>
+            <h2 style="font-size: 1.1rem; margin: 0;">${service.title}</h2>
+          </div>
+          <a
+            href="${finalUrl}"
+            target="_blank"
+            style="color: #14d198; text-decoration: none; font-weight: bold;">
+            Visit <i class="fa-solid fa-chevron-right"></i>
+          </a>
         </div>
-        <a
-          href="${finalUrl}"
-          target="_blank"
-          style="color: #14d198; text-decoration: none; font-weight: bold;">
-          Visit <i class="fa-solid fa-chevron-right"></i>
-        </a>
-      </div>
     `;
   });
 }
@@ -136,3 +153,18 @@ if (searchInput) {
 // 8. Copyright Year Auto-update
 const yearSpan = document.getElementById("year");
 if (yearSpan) yearSpan.innerText = new Date().getFullYear();
+
+// const results = services.filter((service) =>
+//   service.keywords.some((keyword) => keyword.includes(searchText)),
+// );
+
+// search function
+// const searchServices = (query) => {
+//   return services.filter(
+//     (service) =>
+//       service.title.toLowerCase().includes(query.toLowerCase()) ||
+//       service.keywords.some((keyword) =>
+//         keyword.toLowerCase().includes(query.toLowerCase()),
+//       ),
+//   );
+// };
