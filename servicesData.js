@@ -49,12 +49,12 @@ export const ministriesAndDepartments = [
     url: "https://www.gov.lk/",
     keywords: ["digital", "technology", "ict", "it", "innovation"],
   },
-  {
-    main: "Ministries & Departments 🏛",
-    title: "Ministry of Education",
-    url: "https://moe.gov.lk",
-    keywords: ["education", "schools", "higher education", "training"],
-  },
+  // {
+  //   main: "Ministries & Departments 🏛",
+  //   title: "Ministry of Education",
+  //   url: "https://moe.gov.lk",
+  //   keywords: ["education", "schools", "higher education", "training"],
+  // },
   {
     main: "Ministries & Departments 🏛",
     title: "Ministry of Foreign Affairs",
@@ -1894,21 +1894,21 @@ export const tourismCultureAndEnvironment = [
 
 // 10. Specialized Divisions 🌾🌦📊
 export const specializedDivisions = [
-  {
-    main: "Specialized Divisions 🌾🌦📊",
-    title: "Department of Meteorology",
-    url: "http://www.meteo.gov.lk/",
-    keywords: [
-      "weather",
-      "rain",
-      "forecast",
-      "climate",
-      "meteo",
-      "rainfall",
-      "cyclone",
-      "weather alert",
-    ],
-  },
+  // {
+  //   main: "Specialized Divisions 🌾🌦📊",
+  //   title: "Department of Meteorology",
+  //   url: "http://www.meteo.gov.lk/",
+  //   keywords: [
+  //     "weather",
+  //     "rain",
+  //     "forecast",
+  //     "climate",
+  //     "meteo",
+  //     "rainfall",
+  //     "cyclone",
+  //     "weather alert",
+  //   ],
+  // },
   {
     main: "Specialized Divisions 🌾🌦📊",
     title: "Department of Agriculture",
