@@ -5,7 +5,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   scroll-margin-top: 6rem; /* 2026 Spacing standard */
-  -webkit-font-smoothing: antialiased; /* අකුරු වඩාත් පැහැදිලි කිරීමට */
+  -webkit-font-smoothing: antialiased;
 }
 
 /* selection style */
@@ -32,14 +32,14 @@ body {
   height: auto;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  background-color: #f8fafc; /* පිරිසිදු off-white පසුබිමක් */
+  background-color: #f8fafc;
   color: var(--dark-text);
 }
 
 /* font families */
 h1 {
   font-family: "Ubuntu", sans-serif;
-  font-weight: 800; /* තවත් කැපී පෙනීමට */
+  font-weight: 800;
   letter-spacing: -0.5px;
 }
 h2,
@@ -54,10 +54,10 @@ h4 {
 /* 2026 Refined Root Variables */
 :root {
   --white: #ffffff;
-  --light-grey: #94a3b8; /* වඩාත් පිරිසිදු grey එකක් */
+  --light-grey: #94a3b8;
   --shadow-grey: #e2e8f0;
 
-  --dark-text: #1e293b; /* Soft Dark (ඇසට පහසුයි) */
+  --dark-text: #1e293b;
   --black: #0f172a;
 
   /* Premium Mint Green & Emerald Palette */
@@ -138,7 +138,6 @@ header.scrolled {
 .header-logo h1 {
   font-size: 1.9rem;
   text-transform: lowercase;
-  /* color: var(--blue-dark); */
 }
 .header-logo span {
   color: var(--green-medium);
@@ -239,7 +238,7 @@ header.scrolled {
 }
 
 .navbar-links a:hover::after {
-  width: 30px; /* Hover කරද්දී යටින් ඉරක් ඇඳීම */
+  width: 30px;
 }
 
 /* ==========================================
@@ -256,6 +255,7 @@ header.scrolled {
   padding-bottom: 60px;
   color: var(--white);
   text-align: center;
+
   /* Rich Cinematic Dark Blue-Grey Gradient */
   background: radial-gradient(circle at top, #1e3a47 0%, #0f172a 100%);
   position: relative;
@@ -269,13 +269,14 @@ header.scrolled {
   line-height: 1.2;
   letter-spacing: -1px;
   margin-bottom: 1.5rem;
-  font-family:
-    "Poppins", sans-serif; /* Replaced cursive with a clean professional font */
+  font-family: "Poppins", sans-serif;
   max-width: 800px;
   padding: 0 1.5rem;
+
   /* Text gradient effect */
   background: linear-gradient(to right, #ffffff, #a7f3d0);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -353,14 +354,11 @@ header.scrolled {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-
-  /* .search-section button { */
   height: 40px;
   width: 200px;
   margin: 0 auto;
   position: relative;
   top: 1.5rem;
-  /* } */
 }
 
 .search-section button:hover {
@@ -394,6 +392,7 @@ header.scrolled {
   align-items: flex-start;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   z-index: 999;
+
   /* Smooth entry animation */
   animation: popupSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
@@ -582,21 +581,15 @@ section h1 {
     0 10px 30px -10px rgba(148, 163, 184, 0.12),
     0 1px 3px rgba(148, 163, 184, 0.05);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Premium smooth interaction */
-  /* border-left: 6px solid var(--green-medium); Sleeker and cleaner accent line */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-top: 1px solid #f1f5f9;
   border-right: 1px solid #f1f5f9;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
-  /* max-height: 280px; */
   height: 100%;
 
-  /* Modern Hover Lift & Subtle Glow Effect */
   &:hover {
     transform: translateY(-5px);
-    /* box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.15); */
-    /* border-left-color: var(--green-light); */
-    /* border: 2px solid var(--blue-light); */
   }
 
   h3 {
@@ -665,7 +658,6 @@ section h1 {
 .how-it-card {
   h4 {
     text-align: left;
-    /* margin: 20px 0 10px 0; */
     color: var(--blue-dark);
     border-top: 1px dashed #e2e8f0; /* Cleaner separator */
     padding-top: 6px;
@@ -710,57 +702,16 @@ section h1 {
   }
 }
 
-/* ==========================================================
-   2026 Responsive Bento Grid Breakpoints (Desktop/Tablet)
-   ========================================================== */
-/* @media (min-width: 768px) {
-  .why-this-cards {
-    grid-template-columns: repeat(2, 1fr); /* 2x2 Clean layout for Tablet/PC 
-  }
-
-  .how-it-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Spanning the massive Suggested Tags card fully across the bottom row 
-  .how-it-cards .how-it-card:nth-child(4) {
-    grid-column: 1 / -1;
-    margin-top: 12px;
-  }
-}
-
-@media (min-width: 992px) {
-  /* Asymmetric Bento Layout for Why Choose Us section on high-end screens 
-  .why-this-cards {
-    grid-template-columns: repeat(3, 1fr);
-
-    .why-this-card:nth-child(1) {
-      grid-column: span 2; /* First card becomes double wide 
-    }
-    .why-this-card:nth-child(4) {
-      grid-column: span 2; /* Last card becomes double wide creating the bento wave 
-    }
-  }
-}
-
-footer  */
-/* ==========================================
-   2026 Modern Floating Island Footer
-   ========================================== */
 footer {
   /* Rich Luxurious Dark Gradient */
   background: linear-gradient(135deg, #091115 0%, #0f1f26 50%, #152932 100%);
-  /* margin: 1.5rem; Creating the floating desktop separation effect */
   padding: 5rem 2rem;
-  /* border-radius: 24px; Curved modern island edges */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Soft premium outer glow */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
 /* Intelligent Responsive Grid Structure */
 .footer-container {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
   gap: 2.5rem;
   padding: 0;
   margin: 0;
@@ -772,9 +723,8 @@ footer {
 
 /* Expanding the main information panel to look premium */
 .footer-top {
-  grid-column: 1 / -1; /* spans across full width on top */
+  grid-column: 1 / -1;
   margin-bottom: 1.5rem;
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
   padding-bottom: 2rem;
 }
 
@@ -798,9 +748,7 @@ footer {
 .footer-top p {
   color: #94a3b8;
   opacity: 0.9;
-  /* margin: 12px 0 0 0; */
   font-size: 1.05rem;
-  /* max-width: 500px; */
 }
 
 /* ==========================================
@@ -836,11 +784,6 @@ footer {
   margin-right: 12px;
   font-size: 0.9rem;
 }
-
-/* Version icon subtle variation */
-/* .badge-levelup p:nth-child(1) i {
-  color: #fbbf24; /* Amber colored rocket 
-} */
 
 /* ==========================================
    Footer Cards & Modern Navigation Links
@@ -947,7 +890,6 @@ footer {
 /* Responsive adjustment for compact screens */
 @media (max-width: 768px) {
   footer {
-    /* margin: 1rem 0.5rem; */
     padding: 2.5rem 1.5rem;
     border-radius: 1rem 1rem 0 0;
   }
@@ -987,13 +929,11 @@ footer {
     margin: 0;
   }
 
-  /* 2026 Balanced Padding (Preventing huge blank pushing) */
   .home-section {
     padding-top: 180px;
     padding-bottom: 80px;
   }
 
-  /* Centered and slightly wider search block for tablets */
   .search-section {
     display: flex;
     max-width: 480px;
@@ -1002,39 +942,31 @@ footer {
     position: relative;
   }
 
-  /* Optimized universal padding for layout text breathability */
   .how-it-works,
   .why-this {
     padding: 2rem;
-    /* max-width: 1100px; */
     margin: 0 auto;
   }
 
-  /* Standardizing cards inside structural grids */
   .how-it-card,
   .why-this-card {
     border-radius: 16px;
   }
 
-  /* How It Works Grid Controller */
   .how-it-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Columns on Tablet */
-    /* gap: 20px; */
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
   }
 
-  /* Making the massive 4th Card (Suggested Tags) take full row width */
   .how-it-cards .how-it-card:nth-child(4) {
     grid-column: 1 / -1;
     margin-top: 10px;
   }
-
   /* Why Choose Us Grid Controller */
   .why-this-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* gap: 20px; */
     justify-content: center;
   }
 }
@@ -1043,12 +975,10 @@ footer {
    Laptop / Small Desktop View (min-width: 992px)
    ========================================== */
 @media (min-width: 992px) {
-  /* Hiding mobile hamburger burger menu trigger */
   .menu-btns {
     display: none;
   }
 
-  /* Transforming side navigation panel to modern top row */
   .navbar-links {
     display: flex;
     flex-direction: row;
@@ -1057,8 +987,8 @@ footer {
     position: relative;
     top: 0;
     background: transparent !important;
-    backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
     box-shadow: none !important;
     padding: 0;
     width: auto;
@@ -1078,10 +1008,8 @@ footer {
     padding: 0.5rem 1.2rem;
     margin-right: 0.5rem;
     font-size: 1rem;
-    /* color: var(--blue-light); */
   }
 
-  /* Premium Underline Indicator Effect instead of sharp borders */
   .navbar-links a::after {
     bottom: -4px;
   }
@@ -1091,13 +1019,11 @@ footer {
     color: var(--green-light);
   }
 
-  /* Refined Hero spacing for large screens */
   .home-section {
     padding-top: 200px;
     padding-bottom: 120px;
   }
 
-  /* Ultra Premium Full-Width Capsule Search Bar */
   .search-section {
     display: flex;
     max-width: 600px;
@@ -1106,35 +1032,20 @@ footer {
     position: relative;
   }
 
-  /* Intelligent Structural Spacing */
-  .how-it-works,
-  .why-this {
-    /* padding: 5rem 2rem; */
-  }
-
-  /* How It Works 3 Column Flow on Desktop */
   .how-it-cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
 
-  /* Suggested tags still sits comfortably wide at the bottom */
   .how-it-cards .how-it-card:nth-child(4) {
     grid-column: 1 / -1;
-    /* margin-top: 16px; */
-  }
-
-  /* Premium Asymmetric Bento Grid Wave for Why Choose Us */
-  .why-this-cards {
-    /* grid-template-columns: repeat(3, 1fr); */
-    /* gap: 24px; */
   }
 
   .why-this-cards .why-this-card:nth-child(1) {
-    grid-column: span 2; /* Everything in one place card becomes double wide */
+    grid-column: span 2;
   }
   .why-this-cards .why-this-card:nth-child(4) {
-    grid-column: span 2; /* Time saving card becomes double wide balancing the design */
+    grid-column: span 2;
   }
 }
 
@@ -1142,10 +1053,8 @@ footer {
    Large Desktop View (min-width: 1200px)
    ========================================== */
 @media (min-width: 1200px) {
-  /* Restricting absolute max layout container width for flawless presentation */
   .how-it-works,
   .why-this {
     max-width: 1200px;
-    /* padding: 6rem 0; */
   }
 }
