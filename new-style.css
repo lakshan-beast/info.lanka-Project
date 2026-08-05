@@ -1,0 +1,1151 @@
+/* reset css and all css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin-top: 6rem; /* 2026 Spacing standard */
+  -webkit-font-smoothing: antialiased; /* අකුරු වඩාත් පැහැදිලි කිරීමට */
+}
+
+/* selection style */
+*::selection {
+  background-color: var(--green-light);
+  color: var(--white);
+}
+
+/* modern minimalist scroll bar */
+::-webkit-scrollbar {
+  height: 0.25rem;
+  width: 0.25rem;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--green-medium);
+  border-radius: 10px;
+}
+
+/* body and anothers */
+body {
+  height: auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background-color: #f8fafc; /* පිරිසිදු off-white පසුබිමක් */
+  color: var(--dark-text);
+}
+
+/* font families */
+h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 800; /* තවත් කැපී පෙනීමට */
+  letter-spacing: -0.5px;
+}
+h2,
+h3,
+h4 {
+  font-family: "Poppins", "Open Sans", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: -0.3px;
+}
+
+/* 2026 Refined Root Variables */
+:root {
+  --white: #ffffff;
+  --light-grey: #94a3b8; /* වඩාත් පිරිසිදු grey එකක් */
+  --shadow-grey: #e2e8f0;
+
+  --dark-text: #1e293b; /* Soft Dark (ඇසට පහසුයි) */
+  --black: #0f172a;
+
+  /* Premium Mint Green & Emerald Palette */
+  --border-green: #cbd5e1;
+  --green-light: #059669; /* Rich Emerald */
+  --green-medium: #10b981; /* Vibrant Mint */
+  --green-dark: #34d399; /* Bright Accent */
+
+  /* Deep Tech Blue Palette */
+  --blue-light: #334155;
+  --blue-medium: #1e293b;
+  --blue-dark: #0f172a;
+
+  --shadow-low: rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+
+  --bg-popup: rgba(16, 185, 129, 0.1);
+  --red: #ef4444;
+  --hover-bg: rgba(255, 255, 255, 0.8);
+
+  --text-primary: #0f172a;
+  --card-bg: #ffffff;
+  --card-hover: #f8fafc;
+  --card-shadow: rgba(148, 163, 184, 0.12);
+
+  --button-bg: #0f172a;
+  --span-bg: rgba(241, 245, 249, 0.8);
+}
+
+button,
+a,
+.categories-card,
+.disCard {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* header style */
+header {
+  margin: 0;
+  padding: 1.2rem 2.5rem;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 0; /* Modern flat top layout */
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  border-bottom: 1px solid var(--shadow-grey);
+}
+
+header.transparent {
+  background-color: transparent;
+  color: var(--white);
+  border-bottom-color: transparent;
+}
+
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px); /* 2026 Glassmorphism Effect */
+  box-shadow: var(--shadow-low);
+  color: var(--black);
+  border-bottom-color: rgba(241, 245, 249, 0.6);
+}
+
+/* header section style */
+.header-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* logo style */
+.header-logo h1 {
+  font-size: 1.9rem;
+  text-transform: lowercase;
+  /* color: var(--blue-dark); */
+}
+.header-logo span {
+  color: var(--green-medium);
+  font-size: 1.9rem;
+  font-weight: 900;
+}
+.header-logo small {
+  color: var(--light-grey);
+  font-size: 1.4rem;
+  text-transform: lowercase;
+  font-weight: 500;
+  margin-left: 1px;
+}
+
+/* menu btns */
+.menu-btns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.menu-btns i {
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.menu-btns i:hover {
+  transform: scale(1.05);
+  color: var(--green-medium);
+}
+
+/* navbar links style */
+.navbar-links {
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 75px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+  z-index: 99;
+  width: 100%;
+  height: auto;
+}
+/* links transparent and scroll style */
+.navbar-links.transparent {
+  background-color: transparent;
+  color: var(--white);
+}
+.navbar-links.scrolled {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/* Modern Glassmorphic Active Menu for Mobile */
+.navbar-links.active {
+  display: flex;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  color: var(--blue-medium);
+  box-shadow: var(--shadow-md);
+  padding: 30px 0;
+  border-bottom: 1px solid var(--shadow-grey);
+}
+
+#header,
+#navbar-links {
+  transition: all 0.3s ease;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  font-size: 1.05rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  position: relative;
+}
+
+/* Modern Hover Animation Line */
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--green-medium);
+  transition: width 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--green-light);
+}
+
+.navbar-links a:hover::after {
+  width: 30px; /* Hover කරද්දී යටින් ඉරක් ඇඳීම */
+}
+
+/* ==========================================
+   .home-section & Hero Layout (2026 Refined)
+   ========================================== */
+.home-section {
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 160px; /* Adjusted for better hierarchy */
+  padding-bottom: 60px;
+  color: var(--white);
+  text-align: center;
+  /* Rich Cinematic Dark Blue-Grey Gradient */
+  background: radial-gradient(circle at top, #1e3a47 0%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2026 Bold Minimalist Typography */
+.home-section h1 {
+  font-size: 2.8rem; /* Made bigger and bolder */
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+  font-family:
+    "Poppins", sans-serif; /* Replaced cursive with a clean professional font */
+  max-width: 800px;
+  padding: 0 1.5rem;
+  /* Text gradient effect */
+  background: linear-gradient(to right, #ffffff, #a7f3d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-section p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+  padding: 0 1rem;
+  max-width: 600px;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+/* ==========================================
+   Search Section Style (Futuristic Capsule)
+   ========================================== */
+.search-section {
+  display: flex;
+  flex-direction: column !important;
+  max-width: 320px; /* Expanded for a more premium look */
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px;
+  border-radius: 30px; /* Modern Capsule Shape */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-section:focus-within {
+  border-color: var(--green-medium);
+  box-shadow:
+    0 0 25px rgba(16, 185, 129, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.search-section input {
+  flex: 1;
+  padding: 14px 25px;
+  border: none;
+  outline: none;
+  background: transparent; /* Seamless blending */
+  border-radius: 50px 0 0 50px;
+  font-size: 1.05rem;
+  color: var(--white); /* White text for contrast inside dark theme */
+  font-weight: 500;
+}
+
+.search-section input::placeholder {
+  color: #64748b;
+}
+
+/* Floating Action Button */
+.search-section button {
+  padding: 0 24px;
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--green-medium) 0%,
+    var(--green-light) 100%
+  );
+  color: var(--blue-dark); /* Dark text for high contrast readability */
+  border-radius: 50px; /* Matching capsule shape */
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+
+  /* .search-section button { */
+  height: 40px;
+  width: 200px;
+  margin: 0 auto;
+  position: relative;
+  top: 1.5rem;
+  /* } */
+}
+
+.search-section button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.search-section button > i {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   Popup Box Style (Elegant Micro-Notification)
+   ========================================== */
+.popup-box {
+  background: rgba(15, 23, 42, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.25rem;
+  margin: 0;
+  width: 320px;
+  border-radius: 16px;
+  position: fixed; /* Changed to fixed to stay in viewport properly */
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  /* Smooth entry animation */
+  animation: popupSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-box h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.popup-box p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.popup-box p > a {
+  color: var(--green-medium);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--green-medium);
+  padding-bottom: 1px;
+  margin-left: 4px;
+  transition: all 0.2s ease;
+}
+
+.popup-box p > a:hover {
+  color: var(--green-dark);
+  border-bottom-style: solid;
+}
+
+/* ==========================================
+   Result Container & Cards (Glassmorphism UI)
+   ========================================== */
+.result-container {
+  background-color: transparent;
+  min-width: 320px;
+  max-width: 500px; /* Matched with search box width */
+  width: 100%;
+  height: auto;
+  max-height: 55vh;
+  margin: 2rem auto;
+  padding: 4px;
+  border-radius: 16px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Modern standard hide scrollbar */
+}
+
+.result-container::-webkit-scrollbar {
+  display: none; /* Hide for Webkit browsers */
+}
+
+/* Dynamic container search count text */
+#search-count {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.result-card {
+  background: transparent; /* Let container be clean */
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  display: none;
+}
+
+/* Error message styling inside results */
+.result-card p {
+  margin: 1rem 0;
+  padding: 12px;
+  text-align: center;
+  color: #f87171; /* Soft modern red */
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  width: 100%;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Premium Dynamic Box Layout (.disCard) */
+.result-card .disCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column !important;
+  gap: 12px;
+}
+
+.result-card div > h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: left;
+}
+
+.result-card div > a {
+  color: var(--green-medium);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.result-card div > a:hover {
+  color: var(--green-dark);
+}
+
+.result-card i {
+  font-size: 0.85rem;
+}
+
+/* Neo-Minimalist Hover Glow Effect */
+.disCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(52, 211, 153, 0.3); /* Subtle green border on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+section h1 {
+  text-align: center;
+  margin: 0;
+
+  span {
+    color: var(--green-dark);
+  }
+}
+
+/* ==========================================================
+   2026 Premium Bento Grid Layout (.how-it-cards & .why-this-cards)
+   ========================================================== */
+.how-it-cards,
+.why-this-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px; /* Increased padding for modern space breathing */
+  justify-content: center;
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================================
+   Neo-Minimalist Premium Card Design
+   ========================================================== */
+.how-it-card,
+.why-this-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--white);
+  border-radius: 20px; /* Fully rounded modern curved edges */
+  padding: 12px 16px;
+  margin: 0;
+  box-shadow:
+    0 10px 30px -10px rgba(148, 163, 184, 0.12),
+    0 1px 3px rgba(148, 163, 184, 0.05);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Premium smooth interaction */
+  /* border-left: 6px solid var(--green-medium); Sleeker and cleaner accent line */
+  border-top: 1px solid #f1f5f9;
+  border-right: 1px solid #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  /* max-height: 280px; */
+  height: 100%;
+
+  /* Modern Hover Lift & Subtle Glow Effect */
+  &:hover {
+    transform: translateY(-5px);
+    /* box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.15); */
+    /* border-left-color: var(--green-light); */
+    /* border: 2px solid var(--blue-light); */
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    color: var(--blue-dark);
+    font-weight: 800;
+    display: block;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+
+    span {
+      opacity: 0.9;
+      color: var(--green-light); /* Accentuated step descriptions */
+      font-weight: 600;
+      font-size: 1.2rem;
+      display: block;
+    }
+  }
+
+  p {
+    padding-top: 4px;
+    color: #475569; /* Soft tech-grey for easy reading */
+    opacity: 1;
+    margin: 6px 0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    word-spacing: normal; /* Normalized for better readability */
+  }
+}
+
+/* ==========================================================
+   Why Choose Us Specific Styles & Quotes
+   ========================================================== */
+.why-this-card {
+  p {
+    color: #475569;
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Premium Testimonial Quote Bubble */
+  span {
+    font-size: 0.9rem;
+    background-color: var(--span-bg);
+    color: var(--green-light);
+    padding: 10px 18px;
+    border-radius: 12px 12px 12px 2px; /* Chat bubble aesthetic */
+    font-weight: 600;
+    margin-top: 16px;
+    display: inline-block;
+    border: 1px solid rgba(16, 185, 129, 0.08);
+    font-style: italic;
+    width: 100%;
+
+    q {
+      quotes: "“" "”";
+      color: var(--blue-medium);
+    }
+  }
+}
+
+/* ==========================================================
+   How It Works - Suggested Tags Layout (SASS Nesting)
+   ========================================================== */
+.how-it-card {
+  h4 {
+    text-align: left;
+    /* margin: 20px 0 10px 0; */
+    color: var(--blue-dark);
+    border-top: 1px dashed #e2e8f0; /* Cleaner separator */
+    padding-top: 6px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Advanced Pill Chips Styling for the spans inside paragraph */
+  .suggested-words {
+    width: 100%;
+
+    p {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px; /* Dynamic spacing between tags */
+      padding-top: 4px;
+      margin-bottom: 16px;
+
+      span {
+        background-color: #f1f5f9; /* Clean tag background */
+        color: #475569;
+        padding: 6px 14px;
+        border-radius: 100px; /* Modern capsule shape */
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        border: 1px solid #e2e8f0;
+        display: inline-flex;
+        align-items: center;
+        /* Hover chip interaction */
+        &:hover {
+          background-color: var(--green-medium);
+          color: var(--blue-dark);
+          border-color: var(--green-medium);
+          transform: scale(1.05);
+          box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================
+   2026 Responsive Bento Grid Breakpoints (Desktop/Tablet)
+   ========================================================== */
+/* @media (min-width: 768px) {
+  .why-this-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 Clean layout for Tablet/PC 
+  }
+
+  .how-it-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Spanning the massive Suggested Tags card fully across the bottom row 
+  .how-it-cards .how-it-card:nth-child(4) {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Asymmetric Bento Layout for Why Choose Us section on high-end screens 
+  .why-this-cards {
+    grid-template-columns: repeat(3, 1fr);
+
+    .why-this-card:nth-child(1) {
+      grid-column: span 2; /* First card becomes double wide 
+    }
+    .why-this-card:nth-child(4) {
+      grid-column: span 2; /* Last card becomes double wide creating the bento wave 
+    }
+  }
+}
+
+footer  */
+/* ==========================================
+   2026 Modern Floating Island Footer
+   ========================================== */
+footer {
+  /* Rich Luxurious Dark Gradient */
+  background: linear-gradient(135deg, #091115 0%, #0f1f26 50%, #152932 100%);
+  /* margin: 1.5rem; Creating the floating desktop separation effect */
+  padding: 5rem 2rem;
+  /* border-radius: 24px; Curved modern island edges */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Soft premium outer glow */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Intelligent Responsive Grid Structure */
+.footer-container {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+/* Expanding the main information panel to look premium */
+.footer-top {
+  grid-column: 1 / -1; /* spans across full width on top */
+  margin-bottom: 1.5rem;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+  padding-bottom: 2rem;
+}
+
+.footer-top h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: lowercase;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.footer-top h1 > span {
+  color: var(--green-medium);
+}
+
+.footer-top small {
+  color: var(--light-grey);
+  font-weight: 500;
+}
+
+.footer-top p {
+  color: #94a3b8;
+  opacity: 0.9;
+  /* margin: 12px 0 0 0; */
+  font-size: 1.05rem;
+  /* max-width: 500px; */
+}
+
+/* ==========================================
+   Modern Capsule Badges (.badge-levelup)
+   ========================================== */
+.badge-levelup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem 0 0 0;
+  padding-top: 0;
+  flex-wrap: wrap;
+  gap: 3px; /* Modern dynamic spacing */
+  border-top: none; /* Removed heavy old line */
+}
+
+/* Turning paragraphs into beautiful glowing badges */
+.badge-levelup p {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: 100px; /* Capsule pill layout */
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1 !important; /* Overriding default text color */
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.badge-levelup p > i {
+  color: var(--green-medium);
+  margin-right: 12px;
+  font-size: 0.9rem;
+}
+
+/* Version icon subtle variation */
+/* .badge-levelup p:nth-child(1) i {
+  color: #fbbf24; /* Amber colored rocket 
+} */
+
+/* ==========================================
+   Footer Cards & Modern Navigation Links
+   ========================================== */
+.footer-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0; /* Cleared old margins */
+}
+
+.footer-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-card ul {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-card li {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+.footer-card a {
+  color: #94a3b8;
+  opacity: 1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth Premium Hover Action */
+.footer-card li a:hover {
+  color: var(--green-dark);
+  text-decoration: none; /* Removed old school underline */
+  transform: translateX(4px); /* Micro-interaction slide right */
+}
+
+.footer-card i {
+  margin-right: 8px;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   Clean Modern Copyright Bar
+   ========================================== */
+.copy-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copy-right p {
+  text-align: left;
+  color: #64748b;
+  font-size: 0.9rem;
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.copy-right p i {
+  font-size: 0.85rem;
+}
+/* Right aligned utility navigation links */
+.copy-right p span {
+  display: flex;
+  gap: 20px;
+  margin-left: 3px;
+}
+
+.copy-right a {
+  display: inline-block;
+  color: #64748b;
+  padding-right: 0;
+  margin-right: 16px;
+  border-right: none; /* Cleared old borders */
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.copy-right a:hover {
+  color: var(--green-medium);
+}
+
+/* Responsive adjustment for compact screens */
+@media (max-width: 768px) {
+  footer {
+    /* margin: 1rem 0.5rem; */
+    padding: 2.5rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+  .footer-container {
+    flex-direction: column;
+  }
+  .footer-top {
+    margin: 0;
+  }
+  .copy-right {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .copy-right p span {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Mobile First Basics & Breakpoints Commentary
+   --------------------------------------------------------------------------
+   0px - 575px          : Base Mobile Styles (Handled in main CSS sections)
+   @media (min-width: 576px)  : Large Mobile / Small Tablets
+   @media (min-width: 768px)  : Tablets Width
+   @media (min-width: 992px)  : Laptop / Small Desktop
+   @media (min-width: 1200px) : Large Desktop
+   ========================================================================== */
+
+/* ==========================================
+   Tablets View (min-width: 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  .header-section {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* 2026 Balanced Padding (Preventing huge blank pushing) */
+  .home-section {
+    padding-top: 180px;
+    padding-bottom: 80px;
+  }
+
+  /* Centered and slightly wider search block for tablets */
+  .search-section {
+    display: flex;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Optimized universal padding for layout text breathability */
+  .how-it-works,
+  .why-this {
+    padding: 2rem;
+    /* max-width: 1100px; */
+    margin: 0 auto;
+  }
+
+  /* Standardizing cards inside structural grids */
+  .how-it-card,
+  .why-this-card {
+    border-radius: 16px;
+  }
+
+  /* How It Works Grid Controller */
+  .how-it-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns on Tablet */
+    /* gap: 20px; */
+    justify-content: center;
+  }
+
+  /* Making the massive 4th Card (Suggested Tags) take full row width */
+  .how-it-cards .how-it-card:nth-child(4) {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  /* Why Choose Us Grid Controller */
+  .why-this-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* gap: 20px; */
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+   Laptop / Small Desktop View (min-width: 992px)
+   ========================================== */
+@media (min-width: 992px) {
+  /* Hiding mobile hamburger burger menu trigger */
+  .menu-btns {
+    display: none;
+  }
+
+  /* Transforming side navigation panel to modern top row */
+  .navbar-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 0;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    width: auto;
+  }
+
+  .navbar-links li {
+    border: none;
+    padding: 0;
+    list-style: none;
+  }
+
+  .navbar-links a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.2rem;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    /* color: var(--blue-light); */
+  }
+
+  /* Premium Underline Indicator Effect instead of sharp borders */
+  .navbar-links a::after {
+    bottom: -4px;
+  }
+
+  .navbar-links a:hover {
+    background-color: transparent;
+    color: var(--green-light);
+  }
+
+  /* Refined Hero spacing for large screens */
+  .home-section {
+    padding-top: 200px;
+    padding-bottom: 120px;
+  }
+
+  /* Ultra Premium Full-Width Capsule Search Bar */
+  .search-section {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Intelligent Structural Spacing */
+  .how-it-works,
+  .why-this {
+    /* padding: 5rem 2rem; */
+  }
+
+  /* How It Works 3 Column Flow on Desktop */
+  .how-it-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  /* Suggested tags still sits comfortably wide at the bottom */
+  .how-it-cards .how-it-card:nth-child(4) {
+    grid-column: 1 / -1;
+    /* margin-top: 16px; */
+  }
+
+  /* Premium Asymmetric Bento Grid Wave for Why Choose Us */
+  .why-this-cards {
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* gap: 24px; */
+  }
+
+  .why-this-cards .why-this-card:nth-child(1) {
+    grid-column: span 2; /* Everything in one place card becomes double wide */
+  }
+  .why-this-cards .why-this-card:nth-child(4) {
+    grid-column: span 2; /* Time saving card becomes double wide balancing the design */
+  }
+}
+
+/* ==========================================
+   Large Desktop View (min-width: 1200px)
+   ========================================== */
+@media (min-width: 1200px) {
+  /* Restricting absolute max layout container width for flawless presentation */
+  .how-it-works,
+  .why-this {
+    max-width: 1200px;
+    /* padding: 6rem 0; */
+  }
+}

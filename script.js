@@ -76,6 +76,7 @@ window.searchLink = function (demoQuery = null) {
   //     service.main.toLowerCase().includes(query) ||
   //     service.keywords.some((keyword) => keyword.toLowerCase().includes(query)),
   // );
+
   const filteredResults = services.filter((service) => {
     const title = service.title.toLowerCase();
     const main = service.main.toLowerCase();
@@ -86,11 +87,12 @@ window.searchLink = function (demoQuery = null) {
     );
   });
 
+  displayResults(filteredResults);
+  
   // const uniqueResults = [
   //   ...new Map(results.map((item) => [item.title, item])).values(),
   // ];
 
-  displayResults(filteredResults);
 };
 
 // 6. Display Results Logic
