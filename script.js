@@ -88,11 +88,10 @@ window.searchLink = function (demoQuery = null) {
   });
 
   displayResults(filteredResults);
-  
+
   // const uniqueResults = [
   //   ...new Map(results.map((item) => [item.title, item])).values(),
   // ];
-
 };
 
 // 6. Display Results Logic
@@ -123,21 +122,39 @@ function displayResults(results) {
       ? service.url
       : "https://" + service.url;
 
+    // resultCard.innerHTML += `
+    //     <div
+    //       class="disCard"
+    //       style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+    //       <div>
+    //         <h2 style="font-size: 1.1rem; margin: 0;">${service.title}</h2>
+    //       </div>
+    //       <a
+    //         href="${finalUrl}"
+    //         target="_blank"
+    //         style="color: #7614d1; text-decoration: none; font-weight: bold;">
+    //         Visit <i class="fa-solid fa-chevron-right"></i>
+    //       </a>
+    //     </div>
+    // `;
+
     resultCard.innerHTML += `
-        <div
-          class="disCard"
-          style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.1); border-radius: 6px;">
-          <div>
-            <h2 style="font-size: 1.1rem; margin: 0;">${service.title}</h2>
-          </div>
-          <a
-            href="${finalUrl}"
-            target="_blank"
-            style="color: #14d198; text-decoration: none; font-weight: bold;">
-            Visit <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </div>
-    `;
+  <div class="disCard">
+    <div class="disCard-content">
+      <h2 class="disCard-title">${service.title}</h2>
+    </div>
+
+    <a
+      class="disCard-link"
+      href="${finalUrl}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Visit
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </a>
+  </div>
+`;
   });
 }
 
