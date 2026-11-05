@@ -1,0 +1,256 @@
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header">
+    <div class="header-section">
+      <a class="header-logo" href="#home" aria-label="Info.Lanka home">
+        <h1>info<span>.</span><small>lanka</small></h1>
+      </a>
+
+      <nav class="navbar-links" id="navbar-links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#how">How It Works</a>
+        <a href="#why">About Us</a>
+      </nav>
+
+      <button
+        class="menu-btns"
+        id="menu-btns"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navbar-links"
+      >
+        <i class="fa-solid fa-bars-staggered" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <p class="hero-badge">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          Verified official Sri Lankan service links
+        </p>
+
+        <h1>
+          Find any Sri Lankan <span>government service</span> in seconds.
+        </h1>
+
+        <p class="hero-subtitle">
+          Search once. Get the official website directly — no confusion,
+          no fake pages, no wasted time.
+        </p>
+
+        <form class="search-section" role="search" onsubmit="event.preventDefault(); searchLink();">
+          <label class="visually-hidden" for="search-field">
+            Search for a government service
+          </label>
+
+          <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+
+          <input
+            type="search"
+            name="search-field"
+            id="search-field"
+            placeholder="Try “water”, “passport”, “police” or “aswesuma”"
+            autocomplete="off"
+          />
+
+          <button type="submit">
+            Search
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <div class="keyup" id="keyup" aria-live="polite"></div>
+
+        <div class="quick-tags" aria-label="Popular searches">
+          <span>Popular:</span>
+          <button type="button" onclick="searchLink('water')">Water</button>
+          <button type="button" onclick="searchLink('passport')">Passport</button>
+          <button type="button" onclick="searchLink('police')">Police</button>
+          <button type="button" onclick="searchLink('aswesuma')">Aswesuma</button>
+          <button type="button" onclick="searchLink('driving license')">Driving License</button>
+        </div>
+
+        <div class="result-container">
+          <div id="search-count" aria-live="polite"></div>
+          <div class="result-card" id="result-card"></div>
+        </div>
+      </div>
+
+      <div class="popup-box" id="welcome-msg" role="status">
+        <button class="popup-close" type="button" aria-label="Close welcome message">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <h2>Welcome to Info.Lanka <i class="fa-solid fa-hand-sparkles" aria-hidden="true"></i></h2>
+        <p>
+          New here? Try a demo search for
+          <a href="#" onclick="searchLink('water'); return false;">Water</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how">
+      <div class="section-head">
+        <p class="section-eyebrow">Simple process</p>
+        <h2>How <span>Info.Lanka</span> works</h2>
+        <p>
+          Three clear steps take you from searching to the correct official source.
+        </p>
+      </div>
+
+      <div class="how-it-cards">
+        <article class="how-it-card">
+          <div class="card-number">01</div>
+          <h3>Find your service</h3>
+          <p>
+            Use search or browse popular services. Tags help you find even
+            unclear service names quickly.
+          </p>
+        </article>
+
+        <article class="how-it-card">
+          <div class="card-number">02</div>
+          <h3>Check the details</h3>
+          <p>
+            View the service name, category and related tags before opening
+            the official website.
+          </p>
+        </article>
+
+        <article class="how-it-card">
+          <div class="card-number">03</div>
+          <h3>Open official source</h3>
+          <p>
+            Continue directly to the verified government website — safely and
+            without unnecessary middle pages.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE -->
+    <section class="why-this" id="why">
+      <div class="section-head">
+        <p class="section-eyebrow">Why Info.Lanka</p>
+        <h2>Built for people who need <span>the right link</span> fast</h2>
+      </div>
+
+      <div class="why-this-cards">
+        <article class="why-this-card">
+          <i class="fa-solid fa-layer-group card-icon" aria-hidden="true"></i>
+          <h3>Everything in one place</h3>
+          <p>
+            Government departments, utilities, education, health and transport
+            services are organized in one searchable portal.
+          </p>
+        </article>
+
+        <article class="why-this-card">
+          <i class="fa-solid fa-circle-check card-icon" aria-hidden="true"></i>
+          <h3>Verified official links</h3>
+          <p>
+            Every service connects to its official source, helping users avoid
+            misleading third-party pages.
+          </p>
+        </article>
+
+        <article class="why-this-card">
+          <i class="fa-solid fa-bolt card-icon" aria-hidden="true"></i>
+          <h3>Fast and simple</h3>
+          <p>
+            A clean search experience designed for phones and desktops, with
+            quick suggestions and direct access.
+          </p>
+        </article>
+
+        <article class="why-this-card">
+          <i class="fa-solid fa-clock-rotate-left card-icon" aria-hidden="true"></i>
+          <h3>Saves time</h3>
+          <p>
+            No more searching through multiple websites. Find the service and
+            reach the official page in a few seconds.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-top">
+        <a class="footer-logo" href="#home">
+          info<span>.</span><small>lanka</small>
+        </a>
+
+        <p>
+          Sri Lanka’s centralized public-service information platform — helping
+          people find official government links quickly and confidently.
+        </p>
+
+        <div class="badge-levelup">
+          <p><i class="fa-solid fa-rocket" aria-hidden="true"></i> Version 2.0</p>
+          <p><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified links</p>
+          <p><i class="fa-solid fa-users" aria-hidden="true"></i> Community reviewed</p>
+        </div>
+      </div>
+
+      <nav class="footer-card" aria-label="Footer navigation">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#why">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-card">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li>
+            <a href="mailto:lakshansandeepa0305@gmail.com">
+              Report incorrect information
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h3>Popular services</h3>
+        <ul>
+          <li><a href="https://immigration.gov.lk" target="_blank" rel="noopener noreferrer">Passport</a></li>
+          <li><a href="https://dmt.gov.lk" target="_blank" rel="noopener noreferrer">Driving License</a></li>
+          <li><a href="https://doenets.lk" target="_blank" rel="noopener noreferrer">O/L &amp; A/L Results</a></li>
+          <li><a href="https://ceb.lk" target="_blank" rel="noopener noreferrer">Electricity Bill</a></li>
+          <li><a href="https://police.lk" target="_blank" rel="noopener noreferrer">Police Clearance</a></li>
+          <li><a href="https://waterboard.lk" target="_blank" rel="noopener noreferrer">Water Board</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copy-right">
+      <p>
+        Copyright <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+        <span id="year"></span> SyncXel Web Solutions. All rights reserved.
+      </p>
+
+      <div class="legal-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>

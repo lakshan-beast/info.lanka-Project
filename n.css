@@ -1,13 +1,13 @@
 /* =====================================================
-   INFO.LANKA — Premium Violet Editorial Redesign
+   INFO.LANKA — Premium Violet Redesign
+   Matches the new semantic HTML structure
    ===================================================== */
 
 :root {
   --ink: #120b23;
-  --ink-soft: #1d1338;
+  --ink-2: #1d1338;
   --paper: #fbfaff;
   --lavender: #f2edff;
-  --line: rgba(24, 14, 48, .10);
 
   --violet: #7c3aed;
   --violet-bright: #a855f7;
@@ -17,14 +17,15 @@
   --text: #1b1330;
   --muted: #675f7d;
   --muted-dark: #b6abce;
+  --line: rgba(24, 14, 48, .10);
 
   --white: #fff;
   --radius-sm: 14px;
   --radius: 22px;
-  --radius-xl: 34px;
+  --radius-xl: 32px;
 
-  --shadow-1: 0 1px 2px rgba(18, 11, 35, .05), 0 10px 30px rgba(18, 11, 35, .06);
-  --shadow-2: 0 24px 60px rgba(18, 11, 35, .12);
+  --shadow-1: 0 1px 2px rgba(18, 11, 35, .05), 0 12px 32px rgba(18, 11, 35, .06);
+  --shadow-2: 0 26px 64px rgba(18, 11, 35, .13);
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
@@ -33,7 +34,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 7rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -80,8 +81,47 @@ button,
   transition: all .3s var(--ease);
 }
 
+button {
+  font-family: inherit;
+}
+
+/* Accessibility utilities */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 18px;
+  z-index: 2000;
+  padding: 13px 20px;
+  background: var(--violet);
+  color: var(--white);
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: 14px;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, .65);
+  outline-offset: 3px;
+}
+
 /* ==========================================
-   NAVBAR — unchanged premium floating pill
+   NAVBAR — floating glass pill
    ========================================== */
 
 header {
@@ -91,8 +131,6 @@ header {
   right: 0;
   z-index: 1000;
   padding: 0 18px;
-  background: transparent;
-  border: 0;
 }
 
 .header-section {
@@ -109,6 +147,10 @@ header {
   box-shadow: 0 18px 45px rgba(18, 11, 35, .10);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+}
+
+.header-logo {
+  text-decoration: none;
 }
 
 .header-logo h1 {
@@ -174,81 +216,95 @@ header {
 }
 
 /* ==========================================
-   HERO — Cinematic violet aurora
+   HERO
    ========================================== */
 
-.home-section {
+.hero {
   position: relative;
   min-height: 100svh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 180px 22px 110px;
-  text-align: center;
+  justify-content: center;
+  padding: 170px 22px 110px;
   color: var(--white);
   overflow: hidden;
   background:
     radial-gradient(58% 48% at 18% 12%, rgba(168, 85, 247, .38) 0%, transparent 62%),
     radial-gradient(48% 42% at 82% 8%, rgba(99, 102, 241, .32) 0%, transparent 64%),
-    radial-gradient(70% 60% at 50% 108%, rgba(124, 58, 237, .30) 0%, transparent 68%),
+    radial-gradient(70% 60% at 50% 110%, rgba(124, 58, 237, .30) 0%, transparent 68%),
     linear-gradient(165deg, #170c2e 0%, #241244 46%, #120a24 100%);
 }
 
-/* Subtle grain / texture */
-.home-section::after {
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: .16;
+  opacity: .15;
   background-image:
     linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-size: 68px 68px;
   mask-image: radial-gradient(circle at center, black, transparent 78%);
 }
 
-.home-section h1 {
+.hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 940px;
-  margin-bottom: 26px;
-  font-size: clamp(2.5rem, 6.4vw, 4.6rem);
+  width: min(100%, 920px);
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 28px;
+  padding: 9px 17px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(196, 181, 253, .25);
+  border-radius: 999px;
+  color: #ddd3f3;
+  font-size: .82rem;
+  font-weight: 650;
+  letter-spacing: .03em;
+  backdrop-filter: blur(14px);
+}
+
+.hero-badge i {
+  color: #c084fc;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  font-size: clamp(2.5rem, 6.4vw, 4.5rem);
   font-weight: 800;
   color: var(--white);
 }
 
-.home-section h1::after {
-  content: "";
-  display: block;
-  width: 92px;
-  height: 5px;
-  margin: 30px auto 0;
-  border-radius: 99px;
-  background: linear-gradient(90deg, var(--violet-bright), #6366f1);
+.hero h1 span {
+  background: linear-gradient(100deg, #c084fc, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.home-section > p {
-  position: relative;
-  z-index: 2;
-  max-width: 640px;
-  margin-bottom: 48px;
-  color: rgba(233, 225, 255, .78);
+.hero-subtitle {
+  max-width: 620px;
+  margin: 0 auto 44px;
+  color: rgba(233, 225, 255, .76);
   font-size: clamp(1rem, 2vw, 1.18rem);
 }
 
-/* ==========================================
-   SEARCH — Floating glass command bar
-   ========================================== */
-
+/* Search */
 .search-section {
   position: relative;
-  z-index: 3;
-  width: min(100%, 720px);
   display: flex;
   align-items: center;
   gap: 10px;
+  width: min(100%, 720px);
+  margin: 0 auto;
   padding: 9px;
   background: rgba(255, 255, 255, .10);
   border: 1px solid rgba(255, 255, 255, .16);
@@ -267,20 +323,25 @@ header {
     0 30px 70px rgba(8, 3, 20, .5);
 }
 
+.search-icon {
+  padding-left: 22px;
+  color: rgba(214, 205, 240, .75);
+}
+
 #search-field {
   flex: 1;
   min-width: 0;
-  padding: 17px 24px;
+  padding: 17px 12px 17px 0;
   border: 0;
   outline: 0;
   background: transparent;
   color: var(--white);
-  font-size: 1.05rem;
+  font-size: 1.04rem;
   font-weight: 500;
 }
 
 #search-field::placeholder {
-  color: rgba(214, 205, 240, .62);
+  color: rgba(214, 205, 240, .60);
 }
 
 .search-section button {
@@ -289,14 +350,13 @@ header {
   justify-content: center;
   gap: 9px;
   min-height: 54px;
-  padding: 0 30px;
+  padding: 0 28px;
   border: 0;
   border-radius: 999px;
   background: linear-gradient(135deg, #c084fc, #8b5cf6 55%, #6d28d9);
   color: var(--white);
   font-size: .97rem;
   font-weight: 700;
-  letter-spacing: .01em;
   cursor: pointer;
   box-shadow:
     0 14px 34px rgba(139, 92, 246, .38),
@@ -308,15 +368,51 @@ header {
   box-shadow: 0 20px 44px rgba(139, 92, 246, .48);
 }
 
+/* Live suggestions */
+.keyup {
+  width: min(100%, 720px);
+  margin: 12px auto 0;
+  text-align: left;
+}
+
+/* Quick tags */
+.quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 26px;
+  color: rgba(214, 205, 240, .68);
+  font-size: .88rem;
+}
+
+.quick-tags button {
+  padding: 9px 17px;
+  border: 1px solid rgba(196, 181, 253, .25);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .07);
+  color: #e9d5ff;
+  font-size: .86rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.quick-tags button:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--violet-deep);
+  transform: translateY(-2px);
+}
+
 /* ==========================================
-   RESULTS — Premium service cards
-   ========================================= */
+   RESULTS
+   ========================================== */
 
 .result-container {
-  position: relative;
-  z-index: 3;
   width: min(100%, 860px);
-  margin-top: 44px;
+  margin-top: 46px;
   text-align: left;
 }
 
@@ -326,7 +422,6 @@ header {
   color: rgba(214, 205, 240, .72);
   font-size: .92rem;
   font-weight: 600;
-  letter-spacing: .02em;
 }
 
 .result-card {
@@ -344,7 +439,6 @@ header {
   border: 1px solid rgba(255, 255, 255, .10);
   border-radius: var(--radius);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 20px 50px rgba(8, 3, 20, .25);
   overflow: hidden;
 }
@@ -355,7 +449,6 @@ header {
   inset: 0 auto 0 0;
   width: 4px;
   background: linear-gradient(180deg, #c084fc, #6d28d9);
-  opacity: .9;
 }
 
 .result-card .disCard:hover {
@@ -365,9 +458,10 @@ header {
   box-shadow: 0 30px 70px rgba(8, 3, 20, .38);
 }
 
-.result-card h2 {
-  font-size: 1.18rem;
+.result-card h2,
+.result-card h3 {
   color: var(--white);
+  font-size: 1.18rem;
 }
 
 .result-card a {
@@ -403,7 +497,7 @@ header {
 }
 
 /* ==========================================
-   WELCOME POPUP — Refined glass notice
+   WELCOME POPUP
    ========================================== */
 
 .popup-box {
@@ -412,13 +506,12 @@ header {
   bottom: 22px;
   z-index: 999;
   width: min(92vw, 390px);
-  padding: 24px 26px;
-  background: rgba(23, 13, 44, .82);
+  padding: 26px 28px 24px;
+  background: rgba(23, 13, 44, .84);
   border: 1px solid rgba(196, 181, 253, .22);
-  border-radius: 24px;
+  border-radius: 26px;
   box-shadow: 0 34px 80px rgba(8, 3, 20, .55);
   backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
   animation: popupIn .55s var(--ease) forwards;
 }
 
@@ -433,8 +526,29 @@ header {
   }
 }
 
+.popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(196, 181, 253, .22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .07);
+  color: #ddd3f3;
+  cursor: pointer;
+}
+
+.popup-close:hover {
+  background: var(--white);
+  color: var(--violet-deep);
+}
+
 .popup-box h2 {
   margin-bottom: 8px;
+  padding-right: 34px;
   font-size: 1.15rem;
   color: var(--white);
 }
@@ -457,32 +571,54 @@ header {
 }
 
 /* ==========================================
-   CONTENT SECTIONS
+   SECTION HEADINGS
    ========================================== */
 
 .how-it-works {
-  padding: 120px 22px 110px;
+  padding: 125px 22px 115px;
   background: var(--paper);
 }
 
 .why-this {
-  padding: 120px 22px 130px;
+  padding: 125px 22px 135px;
   background:
     radial-gradient(700px 340px at 85% 8%, rgba(168, 85, 247, .10), transparent 62%),
     var(--lavender);
 }
 
-section h1 {
-  max-width: 760px;
-  margin: 0 auto 64px;
+.section-head {
+  max-width: 720px;
+  margin: 0 auto 62px;
   text-align: center;
-  font-size: clamp(2rem, 4.6vw, 3.1rem);
+}
+
+.section-eyebrow {
+  margin-bottom: 14px;
+  color: var(--violet);
+  font-size: .82rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+}
+
+.section-head h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4.6vw, 3.05rem);
   color: var(--ink);
 }
 
-section h1 span {
+.section-head h2 span {
   color: var(--violet);
 }
+
+.section-head p {
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+/* ==========================================
+   HOW IT WORKS
+   ========================================== */
 
 .how-it-cards,
 .why-this-cards {
@@ -512,34 +648,50 @@ section h1 span {
   box-shadow: var(--shadow-2);
 }
 
-.how-it-card h3 {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
-  font-size: 1.32rem;
-  color: var(--ink);
+.card-number {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  background: var(--violet-soft);
+  border: 1px solid rgba(124, 58, 237, .18);
+  color: var(--violet);
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
 }
 
-.how-it-card h3 span {
-  color: var(--violet);
-  font-size: .95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .09em;
+.how-it-card h3,
+.why-this-card h3 {
+  margin-bottom: 14px;
+  font-size: 1.28rem;
+  color: var(--ink);
 }
 
 .how-it-card p,
 .why-this-card p {
   color: var(--muted);
   font-size: 1rem;
-  max-width: 58ch;
+  max-width: 56ch;
 }
 
-.why-this-card h3 {
-  margin-bottom: 15px;
+/* ==========================================
+   WHY CHOOSE
+   ========================================== */
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 22px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, .16), rgba(124, 58, 237, .10));
+  border: 1px solid rgba(124, 58, 237, .18);
+  color: var(--violet);
   font-size: 1.25rem;
-  color: var(--ink);
 }
 
 .why-this-card span {
@@ -557,7 +709,7 @@ section h1 span {
 }
 
 /* ==========================================
-   FOOTER — Deep violet, editorial finish
+   FOOTER
    ========================================== */
 
 footer {
@@ -585,21 +737,31 @@ footer {
   border-bottom: 1px solid rgba(196, 181, 253, .13);
 }
 
-.footer-top h1 {
-  margin-bottom: 14px;
-  font-size: clamp(1.9rem, 4vw, 2.5rem);
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
   text-transform: lowercase;
+  text-decoration: none;
   color: var(--white);
 }
 
-.footer-top h1 span {
+.footer-logo span {
   color: #c084fc;
+}
+
+.footer-logo small {
+  color: var(--muted-dark);
+  font-size: 1.35rem;
+  font-weight: 500;
 }
 
 .footer-top > p {
   max-width: 560px;
   color: var(--muted-dark);
-  font-size: 1.05rem;
+  font-size: 1.04rem;
 }
 
 .badge-levelup {
@@ -620,7 +782,6 @@ footer {
   color: #ddd3f3;
   font-size: .8rem;
   font-weight: 650;
-  letter-spacing: .02em;
 }
 
 .badge-levelup i {
@@ -669,11 +830,16 @@ footer {
   font-size: .87rem;
 }
 
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
 .copy-right a {
   color: #c4b5fd;
-  margin-left: 14px;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .copy-right a:hover {
@@ -724,11 +890,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .why-this-card:nth-child(1),
-  .why-this-card:nth-child(4) {
-    grid-column: span 2;
-  }
-
   .footer-container {
     grid-template-columns: 1.55fr 1fr 1fr 1.25fr;
   }
@@ -739,8 +900,8 @@ footer {
     top: 10px;
   }
 
-  .home-section {
-    padding: 150px 18px 80px;
+  .hero {
+    padding: 150px 18px 85px;
   }
 
   .search-section {
@@ -749,8 +910,13 @@ footer {
     border-radius: 28px;
   }
 
+  .search-icon {
+    display: none;
+  }
+
   #search-field {
     width: 100%;
+    padding: 16px;
     text-align: center;
   }
 
@@ -767,11 +933,11 @@ footer {
 
   .how-it-works,
   .why-this {
-    padding: 85px 18px;
+    padding: 88px 18px;
   }
 
   footer {
-    padding: 72px 18px 30px;
+    padding: 74px 18px 30px;
   }
 
   .copy-right {
